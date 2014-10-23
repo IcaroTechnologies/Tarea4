@@ -21,5 +21,10 @@ class estacionamiento(object):
         if tiempoReservado[0] < datetime.datetime(year=1900,month=1,day=1,hour=6) or tiempoReservado[0] > datetime.datetime(year=1900,month=1,day=1,hour=18) or tiempoReservado[1] < datetime.datetime(year=1900,month=1,day=1,hour=6) or tiempoReservado[1] > datetime.datetime(year=1900,month=1,day=1,hour=18):
             print("El tiempo de reserva no es valido")
             return False
+        
+        if placa in placaPuesto:
+            print("Placa ya existente en la lista de reservas")
+            return False
+
 
         
