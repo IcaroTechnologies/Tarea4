@@ -38,7 +38,21 @@ class Test(unittest.TestCase):
         placaPuesto = {}
         placaEntrada = {}
     
-        self.assertEqual(True, i.intentarEstacionar(matriz,placa,t1,placaPuesto,placaEntrada))  
+        self.assertEqual(True, i.intentarEstacionar(matriz,placa,t1,placaPuesto,placaEntrada)) 
+        
+        
+        
+    def testNoHayPuesto(self):
+        '''No hay puestos disponibles a la hora de llegada del vehiculo'''
+        '''Esta prueba no revisa una frontera, y fue agregada siguiendo el orden TDD estricto'''
+        i = estacionar()
+        matriz = [[1,1,0],[2,3,2],[3,1,2],[1,1,2],[2,3,2],[3,1,2],[1,1,2],[2,3,2],[3,1,2]]
+        placa = 'CVA-01P'
+        t1 = datetime.timedelta(hours=9, minutes=32, seconds=0)
+        placaPuesto = {}
+        placaEntrada = {}
+    
+        self.assertEqual(False, i.intentarEstacionar(matriz,placa,t1,placaPuesto,placaEntrada)) 
         
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
