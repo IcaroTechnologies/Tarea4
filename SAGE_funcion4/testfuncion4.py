@@ -38,6 +38,15 @@ class Test(unittest.TestCase):
         horaSalida=datetime.timedelta(hours=12)
         placaPuesto ={}
         self.assertFalse(est.desocuparPuesto(estadoEstacionamiento,placa,horaSalida,placaPuesto))
+        
+    ''' Se probo con una placa existente, el procedimiento si paso la prueba'''
+    def testPlacaExistente(self):
+        est=Estacionamiento()
+        estadoEstacionamiento=[]
+        placa="AWW7"
+        horaSalida=datetime.timedelta(hours=12)
+        placaPuesto ={placa:3}
+        self.assertTrue(est.desocuparPuesto(estadoEstacionamiento,placa,horaSalida,placaPuesto))
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
