@@ -18,7 +18,7 @@ class Test(unittest.TestCase):
         placa="AWW7"
         horaSalida=datetime.timedelta(hours=12)
         placaPuesto ={}
-        self.assertTrue(est.desocuparPuesto(estadoEstacionamiento,placa,horaSalida,placaPuesto))   
+        self.assertFalse(est.desocuparPuesto(estadoEstacionamiento,placa,horaSalida,placaPuesto))   
         
     '''Prueba donde se comprobo que el formato de la hora fuese el adecuado, inicialmente si paso
        debido a que no habian condiciones sobre este formato'''
@@ -26,10 +26,19 @@ class Test(unittest.TestCase):
         est=Estacionamiento()
         estadoEstacionamiento = []
         placa="AWW7"
-        horaSalida=datetime.timedelta(hours=19)
+        horaSalida=datetime.timedelta(hours=12)
         placaPuesto ={}
-        self.assertTrue(est.desocuparPuesto(estadoEstacionamiento,placa,horaSalida,placaPuesto))  
+        self.assertFalse(est.desocuparPuesto(estadoEstacionamiento,placa,horaSalida,placaPuesto))  
         
+    ''' Se revisa una placa que no existe, inicialmente falló arrojando una excepción'''
+    def testPlacaInexistente(self):
+        est=Estacionamiento()
+        estadoEstacionamiento = []
+        placa="AWW7"
+        horaSalida=datetime.timedelta(hours=12)
+        placaPuesto ={}
+        self.assertFalse(est.desocuparPuesto(estadoEstacionamiento,placa,horaSalida,placaPuesto))
+
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
