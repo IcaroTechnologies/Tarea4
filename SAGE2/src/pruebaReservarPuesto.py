@@ -101,6 +101,23 @@ class Test(unittest.TestCase):
         result=estacionamiento()
         result.reservarPuesto(estadoEstacionamiento, tiempoReservado, placa, placaPuesto)
         self.assertEqual(salida, estadoEstacionamiento[6])
+        
+    def testHorasReservaUltimasHoras(self):
+        
+        estadoEstacionamiento=[[2,1,3,1,2,3,1,2,2,3,1,2,2,1,3,1,2,3,1,2,2,3,1,2],
+                               [3,1,2,0,1,2,3,0,3,1,2,3,0,2,3,1,2,3,1,2,3,1,2,0],
+                               [1,3,1,2,3,1,2,2,3,1,2,2,0,0,0,2,1,3,2,1,1,1,1,3],
+                               [2,1,3,1,2,3,1,2,2,3,1,2,2,1,3,1,2,3,1,2,2,3,1,2],
+                               [3,1,2,0,1,2,3,0,3,1,2,3,0,2,3,1,2,3,1,2,3,1,2,0],
+                               [1,3,1,2,3,1,2,2,3,1,2,2,0,0,0,2,1,3,2,1,1,1,1,3],
+                               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,1,0,0,0]]
+        salida = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,1,2,2,2]
+        tiempoReservado= [datetime.datetime(year=1900,month=1,day=1,hour=16,minute=30),datetime.datetime(year=1900,month=1,day=1,hour=18)]
+        placa="ASC234"
+        placaPuesto={"kjsrnf" : 5, "dscjkn" : 1, "243byf" : 2}
+        result=estacionamiento()
+        result.reservarPuesto(estadoEstacionamiento, tiempoReservado, placa, placaPuesto)
+        self.assertEqual(salida, estadoEstacionamiento[6])
 
 
 if __name__ == "__main__":
