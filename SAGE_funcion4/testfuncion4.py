@@ -42,7 +42,13 @@ class Test(unittest.TestCase):
     ''' Se probo con una placa existente, el procedimiento si paso la prueba'''
     def testPlacaExistente(self):
         est=Estacionamiento()
-        estadoEstacionamiento=[]
+        estadoEstacionamiento =[[2,1,3,1,2,3,1,2,2,3,1,2,2,1,3,1,2,3,1,2,2,3,1,2],
+                               [3,1,2,0,1,2,3,0,3,1,2,3,0,2,3,1,2,3,1,2,3,1,2,0],
+                               [1,3,1,2,3,1,2,2,3,1,2,2,0,0,0,2,1,3,2,1,1,1,1,3],
+                               [2,1,3,1,2,3,1,2,2,3,1,2,2,1,3,1,2,3,1,2,2,3,1,2],
+                               [3,1,2,0,1,2,3,0,3,1,2,3,0,2,3,1,2,3,1,2,3,1,2,0],
+                               [1,3,1,2,3,1,2,2,3,1,2,2,0,0,0,2,1,3,2,1,1,1,1,3],
+                               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,1,0,0,0]]
         placa="AWW7"
         horaSalida=datetime.timedelta(hours=12)
         placaPuesto ={placa:3}
@@ -57,6 +63,21 @@ class Test(unittest.TestCase):
         horaSalida=datetime.timedelta(hours=19)
         placaPuesto ={placa:3}
         self.assertFalse(est.desocuparPuesto(estadoEstacionamiento,placa,horaSalida,placaPuesto),placaPuesto[placa])
+        
+    '''Se construye el cuerpo principal del procedimiento'''
+    def testDesocuparPuesto(self):
+        est=Estacionamiento()
+        estadoEstacionamiento =[[2,1,3,1,2,3,1,2,2,3,1,2,2,1,3,1,2,3,1,2,2,3,1,2],
+                               [3,1,2,0,1,2,3,0,3,1,2,3,0,2,3,1,2,3,1,2,3,1,2,0],
+                               [1,3,1,2,3,1,2,2,3,1,2,2,0,0,0,2,1,3,2,1,1,1,1,3],
+                               [2,1,3,1,2,3,1,2,2,3,1,2,2,1,3,1,2,3,1,2,2,3,1,2],
+                               [3,1,2,0,1,2,3,0,3,1,2,3,0,2,3,1,2,3,1,2,3,1,2,0],
+                               [1,3,1,2,3,1,2,2,3,1,2,2,0,0,0,2,1,3,2,1,1,1,1,3],
+                               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3,1,0,0,0]]
+        placa="AWW744"
+        horaSalida=datetime.timedelta(hours=17, minutes=40)
+        placaPuesto = {placa:3}
+        self.assertTrue(est.desocuparPuesto(estadoEstacionamiento,placa,horaSalida,placaPuesto))
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
