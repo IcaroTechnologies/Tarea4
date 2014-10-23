@@ -47,6 +47,16 @@ class Test(unittest.TestCase):
         horaSalida=datetime.timedelta(hours=12)
         placaPuesto ={placa:3}
         self.assertTrue(est.desocuparPuesto(estadoEstacionamiento,placa,horaSalida,placaPuesto))
+        
+    '''Se probó con una hora mas tarde que las 6 pm, el procedimiento fallo ya que no habia restricciones
+       sobre el horario de entreda de un automovil'''
+    def testTiempoFueraDeRango(self):
+        est=Estacionamiento()
+        estadoEstacionamiento = []
+        placa="AWW7"
+        horaSalida=datetime.timedelta(hours=19)
+        placaPuesto ={placa:3}
+        self.assertFalse(est.desocuparPuesto(estadoEstacionamiento,placa,horaSalida,placaPuesto),placaPuesto[placa])
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
