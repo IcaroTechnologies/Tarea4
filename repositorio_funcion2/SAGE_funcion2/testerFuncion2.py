@@ -28,6 +28,18 @@ class Test(unittest.TestCase):
         
         
         
+    def testHayPuesto(self):
+        '''Un vehiculo encuentra puesto en el estacionamiento'''
+        '''Esta prueba no revisa una frontera, y fue agregada siguiendo el orden TDD estricto'''
+        i = estacionar()
+        matriz = [[1,1,2],[2,3,2],[3,1,2],[1,1,2],[2,3,2],[3,1,2],[1,0,2],[0,3,2],[3,1,2]]
+        placa = 'CVA-01P'
+        t1 = datetime.timedelta(hours=9, minutes=32, seconds=0)
+        placaPuesto = {}
+        placaEntrada = {}
+    
+        self.assertEqual(True, i.intentarEstacionar(matriz,placa,t1,placaPuesto,placaEntrada))  
+        
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()

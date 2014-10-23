@@ -18,3 +18,14 @@ class estacionar(object):
         if (bloque > 23 ):
             print('Estacionamiento Cerrado')
             return False
+
+        puestos = estadoEstacionamiento[bloque]
+        i = 0
+    
+        while (i < len(puestos)):
+            if (puestos[i] == 0):
+                placaPuesto[placa]=i
+                estadoEstacionamiento[bloque][i] = 1
+                return True
+            i = i + 1   
+        return False
