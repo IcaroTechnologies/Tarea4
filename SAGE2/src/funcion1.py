@@ -10,8 +10,11 @@ class estacionamiento(object):
     '''
     
     
-    def reservarPuesto(self,estadoEstacionamiento,tiempoReservado,placa,placaPuesto,PlacaEntrada):
-        return True
+    def reservarPuesto(self,estadoEstacionamiento,tiempoReservado,placa,placaPuesto):
+        
+        if tiempoReservado[0] > tiempoReservado[1]:
+            print("El tiempo de reserva no es valido")
+            return False
         
 
         
