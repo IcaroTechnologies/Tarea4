@@ -32,9 +32,13 @@ class estacionamiento(object):
         
         bloqueI = ((tiempoReservado[0].hour - 6) * 2)
         
+        if (tiempoReservado[0].minute != 0):
+            bloqueI = bloqueI + 1
             
         bloqueF = ((tiempoReservado[1].hour - 6) * 2) - 1
         
+        if (tiempoReservado[1].minute != 0):
+            bloqueF = bloqueF + 1
             
         totalBloques = (bloqueF - bloqueI) + 1
             
