@@ -81,6 +81,7 @@ class Test(unittest.TestCase):
         placaEntrada = {'CVA-01P':2}
         
         self.assertEqual(True,i.intentarEstacionar(matriz,placa,t1,placaPuesto,placaEntrada))
+        
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
